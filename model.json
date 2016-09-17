@@ -1,691 +1,691 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "definitions": {
-    "IGSI_Provider": {
-      "id": "IGSI_Provider",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "definitions": {
+        "IGSI_Provider": {
+            "id": "IGSI_Provider",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "appid": {
+                    "type": "number"
+                },
+                "version": {
+                    "type": "number"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "appid",
+                "version",
+                "timestamp"
+            ],
+            "additionalProperties": false
         },
-        "appid": {
-          "type": "number"
+        "IGSI_Hero": {
+            "id": "IGSI_Hero",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "alive": {
+                    "type": "boolean"
+                },
+                "respawn_seconds": {
+                    "type": "number"
+                },
+                "buyback_cost": {
+                    "type": "number"
+                },
+                "buyback_cooldown": {
+                    "type": "number"
+                },
+                "health": {
+                    "type": "number"
+                },
+                "max_health": {
+                    "type": "number"
+                },
+                "health_percent": {
+                    "type": "number"
+                },
+                "mana": {
+                    "type": "number"
+                },
+                "max_mana": {
+                    "type": "number"
+                },
+                "mana_percent": {
+                    "type": "number"
+                },
+                "silenced": {
+                    "type": "boolean"
+                },
+                "stunned": {
+                    "type": "boolean"
+                },
+                "disarmed": {
+                    "type": "boolean"
+                },
+                "magicimmune": {
+                    "type": "boolean"
+                },
+                "hexed": {
+                    "type": "boolean"
+                },
+                "muted": {
+                    "type": "boolean"
+                },
+                "break": {
+                    "type": "boolean"
+                },
+                "has_debuff": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "level",
+                "alive",
+                "respawn_seconds",
+                "buyback_cost",
+                "buyback_cooldown",
+                "health",
+                "max_health",
+                "health_percent",
+                "mana",
+                "max_mana",
+                "mana_percent",
+                "silenced",
+                "stunned",
+                "disarmed",
+                "magicimmune",
+                "hexed",
+                "muted",
+                "break",
+                "has_debuff"
+            ],
+            "additionalProperties": false
         },
-        "version": {
-          "type": "number"
+        "IGSI_AbilityBase": {
+            "id": "IGSI_AbilityBase",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "can_cast": {
+                    "type": "boolean"
+                },
+                "passive": {
+                    "type": "boolean"
+                },
+                "ability_active": {
+                    "type": "boolean"
+                },
+                "cooldown": {
+                    "type": "number"
+                },
+                "ultimate": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "level",
+                "can_cast",
+                "passive",
+                "ability_active",
+                "cooldown",
+                "ultimate"
+            ],
+            "additionalProperties": false
         },
-        "timestamp": {
-          "type": "string"
+        "IGSI_ItemBase": {
+            "id": "IGSI_ItemBase",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "contains_rune": {
+                    "type": "boolean"
+                },
+                "can_cast": {
+                    "type": "boolean"
+                },
+                "cooldown": {
+                    "type": "string"
+                },
+                "passive": {
+                    "type": "boolean"
+                },
+                "charges": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "contains_rune",
+                "can_cast",
+                "cooldown",
+                "passive",
+                "charges"
+            ],
+            "additionalProperties": false
+        },
+        "IGSI_Map": {
+            "id": "IGSI_Map",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "matchid": {
+                    "type": "string"
+                },
+                "game_time": {
+                    "type": "number"
+                },
+                "clock_time": {
+                    "type": "number"
+                },
+                "daytime": {
+                    "type": "boolean"
+                },
+                "nightstalker_night": {
+                    "type": "boolean"
+                },
+                "game_state": {
+                    "id": "GSI_GameState",
+                    "enum": [
+                        "DOTA_GAMERULES_STATE_INIT",
+                        "DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD",
+                        "DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP",
+                        "DOTA_GAMERULES_STATE_HERO_SELECTION",
+                        "DOTA_GAMERULES_STATE_STRATEGY_TIME",
+                        "DOTA_GAMERULES_STATE_TEAM_SHOWCASE",
+                        "DOTA_GAMERULES_STATE_PRE_GAME",
+                        "DOTA_GAMERULES_STATE_GAME_IN_PROGRESS",
+                        "DOTA_GAMERULES_STATE_POST_GAME",
+                        "DOTA_GAMERULES_STATE_DISCONNECT"
+                    ]
+                },
+                "win_team": {
+                    "id": "GSI_PlayerTeam",
+                    "enum": [
+                        "dire",
+                        "radiant",
+                        "none",
+                        "undefined"
+                    ]
+                },
+                "customgamename": {
+                    "type": "string"
+                },
+                "ward_purchase_cooldown": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "matchid",
+                "game_time",
+                "clock_time",
+                "daytime",
+                "nightstalker_night",
+                "game_state",
+                "win_team",
+                "customgamename",
+                "ward_purchase_cooldown"
+            ],
+            "additionalProperties": false
+        },
+        "IGSI_Player": {
+            "id": "IGSI_Player",
+            "type": "object",
+            "properties": {
+                "steamid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "activity": {
+                    "id": "GSI_PlayerActivity",
+                    "enum": [
+                        "playing",
+                        "menu",
+                        "undefined"
+                    ]
+                },
+                "kills": {
+                    "type": "number"
+                },
+                "deaths": {
+                    "type": "number"
+                },
+                "assists": {
+                    "type": "number"
+                },
+                "last_hits": {
+                    "type": "number"
+                },
+                "denies": {
+                    "type": "number"
+                },
+                "kill_streak": {
+                    "type": "number"
+                },
+                "team_name": {
+                    "id": "GSI_PlayerTeam",
+                    "enum": [
+                        "dire",
+                        "radiant",
+                        "none",
+                        "undefined"
+                    ]
+                },
+                "gold": {
+                    "type": "number"
+                },
+                "gold_reliable": {
+                    "type": "number"
+                },
+                "gold_unreliable": {
+                    "type": "number"
+                },
+                "gpm": {
+                    "type": "number"
+                },
+                "xpm": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "steamid",
+                "name",
+                "activity",
+                "kills",
+                "deaths",
+                "assists",
+                "last_hits",
+                "denies",
+                "kill_streak",
+                "team_name",
+                "gold",
+                "gold_reliable",
+                "gold_unreliable",
+                "gpm",
+                "xpm"
+            ],
+            "additionalProperties": false
         }
-      },
-      "required": [
-        "name",
-        "appid",
-        "version",
-        "timestamp"
-      ],
-      "additionalProperties": false
     },
-    "IGSI_Hero": {
-      "id": "IGSI_Hero",
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        },
-        "level": {
-          "type": "number"
-        },
-        "alive": {
-          "type": "boolean"
-        },
-        "respawn_seconds": {
-          "type": "number"
-        },
-        "buyback_cost": {
-          "type": "number"
-        },
-        "buyback_cooldown": {
-          "type": "number"
-        },
-        "health": {
-          "type": "number"
-        },
-        "max_health": {
-          "type": "number"
-        },
-        "health_percent": {
-          "type": "number"
-        },
-        "mana": {
-          "type": "number"
-        },
-        "max_mana": {
-          "type": "number"
-        },
-        "mana_percent": {
-          "type": "number"
-        },
-        "silenced": {
-          "type": "boolean"
-        },
-        "stunned": {
-          "type": "boolean"
-        },
-        "disarmed": {
-          "type": "boolean"
-        },
-        "magicimmune": {
-          "type": "boolean"
-        },
-        "hexed": {
-          "type": "boolean"
-        },
-        "muted": {
-          "type": "boolean"
-        },
-        "break": {
-          "type": "boolean"
-        },
-        "has_debuff": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "level",
-        "alive",
-        "respawn_seconds",
-        "buyback_cost",
-        "buyback_cooldown",
-        "health",
-        "max_health",
-        "health_percent",
-        "mana",
-        "max_mana",
-        "mana_percent",
-        "silenced",
-        "stunned",
-        "disarmed",
-        "magicimmune",
-        "hexed",
-        "muted",
-        "break",
-        "has_debuff"
-      ],
-      "additionalProperties": false
-    },
-    "IGSI_AbilityBase": {
-      "id": "IGSI_AbilityBase",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "level": {
-          "type": "number"
-        },
-        "can_cast": {
-          "type": "boolean"
-        },
-        "passive": {
-          "type": "boolean"
-        },
-        "ability_active": {
-          "type": "boolean"
-        },
-        "cooldown": {
-          "type": "number"
-        },
-        "ultimate": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "name",
-        "level",
-        "can_cast",
-        "passive",
-        "ability_active",
-        "cooldown",
-        "ultimate"
-      ],
-      "additionalProperties": false
-    },
-    "IGSI_ItemBase": {
-      "id": "IGSI_ItemBase",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "contains_rune": {
-          "type": "boolean"
-        },
-        "can_cast": {
-          "type": "boolean"
-        },
-        "cooldown": {
-          "type": "string"
-        },
-        "passive": {
-          "type": "boolean"
-        },
-        "charges": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "name",
-        "contains_rune",
-        "can_cast",
-        "cooldown",
-        "passive",
-        "charges"
-      ],
-      "additionalProperties": false
-    },
-    "IGSI_Map": {
-      "id": "IGSI_Map",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "matchid": {
-          "type": "string"
-        },
-        "gametime": {
-          "type": "number"
-        },
-        "clocktime": {
-          "type": "number"
-        },
-        "isdaytime": {
-          "type": "boolean"
-        },
-        "isnightstalker_night": {
-          "type": "boolean"
-        },
-        "gamestate": {
-          "id": "GSI_GameState",
-          "enum": [
-            "DOTA_GAMERULES_STATE_INIT",
-            "DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD",
-            "DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP",
-            "DOTA_GAMERULES_STATE_HERO_SELECTION",
-            "DOTA_GAMERULES_STATE_STRATEGY_TIME",
-            "DOTA_GAMERULES_STATE_TEAM_SHOWCASE",
-            "DOTA_GAMERULES_STATE_PRE_GAME",
-            "DOTA_GAMERULES_STATE_GAME_IN_PROGRESS",
-            "DOTA_GAMERULES_STATE_POST_GAME",
-            "DOTA_GAMERULES_STATE_DISCONNECT"
-          ]
-        },
-        "win_team": {
-          "id": "GSI_PlayerTeam",
-          "enum": [
-            "dire",
-            "radiant",
-            "none",
-            "undefined"
-          ]
-        },
-        "customgamename": {
-          "type": "string"
-        },
-        "ward_purchase_cooldown": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "name",
-        "matchid",
-        "gametime",
-        "clocktime",
-        "isdaytime",
-        "isnightstalker_night",
-        "gamestate",
-        "win_team",
-        "customgamename",
-        "ward_purchase_cooldown"
-      ],
-      "additionalProperties": false
-    },
-    "IGSI_Player": {
-      "id": "IGSI_Player",
-      "type": "object",
-      "properties": {
-        "steamid": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "activity": {
-          "id": "GSI_PlayerActivity",
-          "enum": [
-            "playing",
-            "menu",
-            "undefined"
-          ]
-        },
-        "kills": {
-          "type": "number"
-        },
-        "deaths": {
-          "type": "number"
-        },
-        "assists": {
-          "type": "number"
-        },
-        "last_hits": {
-          "type": "number"
-        },
-        "denies": {
-          "type": "number"
-        },
-        "kill_streak": {
-          "type": "number"
-        },
-        "team_name": {
-          "id": "GSI_PlayerTeam",
-          "enum": [
-            "dire",
-            "radiant",
-            "none",
-            "undefined"
-          ]
-        },
-        "gold": {
-          "type": "number"
-        },
-        "gold_reliable": {
-          "type": "number"
-        },
-        "gold_unreliable": {
-          "type": "number"
-        },
-        "gpm": {
-          "type": "number"
-        },
-        "xpm": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "steamid",
-        "name",
-        "activity",
-        "kills",
-        "deaths",
-        "assists",
-        "last_hits",
-        "denies",
-        "kill_streak",
-        "team_name",
-        "gold",
-        "gold_reliable",
-        "gold_unreliable",
-        "gpm",
-        "xpm"
-      ],
-      "additionalProperties": false
-    }
-  },
-  "title": "GSI Model",
-  "type": "object",
-  "description": "IGSI_Msg",
-  "properties": {
-    "auth": {
-      "type": "string"
-    },
-    "provider": {
-      "description": "IGSI_Provider",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "appid": {
-          "type": "number"
-        },
-        "version": {
-          "type": "number"
-        },
-        "timestamp": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "appid",
-        "version",
-        "timestamp"
-      ],
-      "additionalProperties": false
-    },
-    "map": {
-      "description": "IGSI_Map",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "matchid": {
-          "type": "string"
-        },
-        "gametime": {
-          "type": "number"
-        },
-        "clocktime": {
-          "type": "number"
-        },
-        "isdaytime": {
-          "type": "boolean"
-        },
-        "isnightstalker_night": {
-          "type": "boolean"
-        },
-        "gamestate": {
-          "description": "GSI_GameState",
-          "enum": [
-            "DOTA_GAMERULES_STATE_INIT",
-            "DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD",
-            "DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP",
-            "DOTA_GAMERULES_STATE_HERO_SELECTION",
-            "DOTA_GAMERULES_STATE_STRATEGY_TIME",
-            "DOTA_GAMERULES_STATE_TEAM_SHOWCASE",
-            "DOTA_GAMERULES_STATE_PRE_GAME",
-            "DOTA_GAMERULES_STATE_GAME_IN_PROGRESS",
-            "DOTA_GAMERULES_STATE_POST_GAME",
-            "DOTA_GAMERULES_STATE_DISCONNECT"
-          ]
-        },
-        "win_team": {
-          "description": "GSI_PlayerTeam",
-          "enum": [
-            "dire",
-            "radiant",
-            "none",
-            "undefined"
-          ]
-        },
-        "customgamename": {
-          "type": "string"
-        },
-        "ward_purchase_cooldown": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "name",
-        "matchid",
-        "gametime",
-        "clocktime",
-        "isdaytime",
-        "isnightstalker_night",
-        "gamestate",
-        "win_team",
-        "customgamename",
-        "ward_purchase_cooldown"
-      ],
-      "additionalProperties": false
-    },
-    "player": {
-      "description": "IGSI_Player",
-      "type": "object",
-      "properties": {
-        "steamid": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "activity": {
-          "description": "GSI_PlayerActivity",
-          "enum": [
-            "playing",
-            "menu",
-            "undefined"
-          ]
-        },
-        "kills": {
-          "type": "number"
-        },
-        "deaths": {
-          "type": "number"
-        },
-        "assists": {
-          "type": "number"
-        },
-        "last_hits": {
-          "type": "number"
-        },
-        "denies": {
-          "type": "number"
-        },
-        "kill_streak": {
-          "type": "number"
-        },
-        "team_name": {
-          "description": "GSI_PlayerTeam",
-          "enum": [
-            "dire",
-            "radiant",
-            "none",
-            "undefined"
-          ]
-        },
-        "gold": {
-          "type": "number"
-        },
-        "gold_reliable": {
-          "type": "number"
-        },
-        "gold_unreliable": {
-          "type": "number"
-        },
-        "gpm": {
-          "type": "number"
-        },
-        "xpm": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "steamid",
-        "name",
-        "activity",
-        "kills",
-        "deaths",
-        "assists",
-        "last_hits",
-        "denies",
-        "kill_streak",
-        "team_name",
-        "gold",
-        "gold_reliable",
-        "gold_unreliable",
-        "gpm",
-        "xpm"
-      ],
-      "additionalProperties": false
-    },
-    "hero": {
-      "description": "IGSI_Hero",
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        },
-        "level": {
-          "type": "number"
-        },
-        "alive": {
-          "type": "boolean"
-        },
-        "respawn_seconds": {
-          "type": "number"
-        },
-        "buyback_cost": {
-          "type": "number"
-        },
-        "buyback_cooldown": {
-          "type": "number"
-        },
-        "health": {
-          "type": "number"
-        },
-        "max_health": {
-          "type": "number"
-        },
-        "health_percent": {
-          "type": "number"
-        },
-        "mana": {
-          "type": "number"
-        },
-        "max_mana": {
-          "type": "number"
-        },
-        "mana_percent": {
-          "type": "number"
-        },
-        "silenced": {
-          "type": "boolean"
-        },
-        "stunned": {
-          "type": "boolean"
-        },
-        "disarmed": {
-          "type": "boolean"
-        },
-        "magicimmune": {
-          "type": "boolean"
-        },
-        "hexed": {
-          "type": "boolean"
-        },
-        "muted": {
-          "type": "boolean"
-        },
-        "break": {
-          "type": "boolean"
-        },
-        "has_debuff": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "level",
-        "alive",
-        "respawn_seconds",
-        "buyback_cost",
-        "buyback_cooldown",
-        "health",
-        "max_health",
-        "health_percent",
-        "mana",
-        "max_mana",
-        "mana_percent",
-        "silenced",
-        "stunned",
-        "disarmed",
-        "magicimmune",
-        "hexed",
-        "muted",
-        "break",
-        "has_debuff"
-      ],
-      "additionalProperties": false
-    },
-    "abilities": {
-      "items": {
-        "description": "IGSI_AbilityBase",
-        "type": "object",
-        "properties": {
-          "name": {
+    "title": "GSI Model",
+    "type": "object",
+    "description": "IGSI_Msg",
+    "properties": {
+        "auth": {
             "type": "string"
-          },
-          "level": {
-            "type": "number"
-          },
-          "can_cast": {
-            "type": "boolean"
-          },
-          "passive": {
-            "type": "boolean"
-          },
-          "ability_active": {
-            "type": "boolean"
-          },
-          "cooldown": {
-            "type": "number"
-          },
-          "ultimate": {
-            "type": "boolean"
-          }
         },
-        "required": [
-          "name",
-          "level",
-          "can_cast",
-          "passive",
-          "ability_active",
-          "cooldown",
-          "ultimate"
-        ],
-        "additionalProperties": false
-      },
-      "type": "array"
+        "provider": {
+            "description": "IGSI_Provider",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "appid": {
+                    "type": "number"
+                },
+                "version": {
+                    "type": "number"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "appid",
+                "version",
+                "timestamp"
+            ],
+            "additionalProperties": false
+        },
+        "map": {
+            "description": "IGSI_Map",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "matchid": {
+                    "type": "string"
+                },
+                "gametime": {
+                    "type": "number"
+                },
+                "clocktime": {
+                    "type": "number"
+                },
+                "isdaytime": {
+                    "type": "boolean"
+                },
+                "isnightstalker_night": {
+                    "type": "boolean"
+                },
+                "gamestate": {
+                    "description": "GSI_GameState",
+                    "enum": [
+                        "DOTA_GAMERULES_STATE_INIT",
+                        "DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD",
+                        "DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP",
+                        "DOTA_GAMERULES_STATE_HERO_SELECTION",
+                        "DOTA_GAMERULES_STATE_STRATEGY_TIME",
+                        "DOTA_GAMERULES_STATE_TEAM_SHOWCASE",
+                        "DOTA_GAMERULES_STATE_PRE_GAME",
+                        "DOTA_GAMERULES_STATE_GAME_IN_PROGRESS",
+                        "DOTA_GAMERULES_STATE_POST_GAME",
+                        "DOTA_GAMERULES_STATE_DISCONNECT"
+                    ]
+                },
+                "win_team": {
+                    "description": "GSI_PlayerTeam",
+                    "enum": [
+                        "dire",
+                        "radiant",
+                        "none",
+                        "undefined"
+                    ]
+                },
+                "customgamename": {
+                    "type": "string"
+                },
+                "ward_purchase_cooldown": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "matchid",
+                "gametime",
+                "clocktime",
+                "isdaytime",
+                "isnightstalker_night",
+                "gamestate",
+                "win_team",
+                "customgamename",
+                "ward_purchase_cooldown"
+            ],
+            "additionalProperties": false
+        },
+        "player": {
+            "description": "IGSI_Player",
+            "type": "object",
+            "properties": {
+                "steamid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "activity": {
+                    "description": "GSI_PlayerActivity",
+                    "enum": [
+                        "playing",
+                        "menu",
+                        "undefined"
+                    ]
+                },
+                "kills": {
+                    "type": "number"
+                },
+                "deaths": {
+                    "type": "number"
+                },
+                "assists": {
+                    "type": "number"
+                },
+                "last_hits": {
+                    "type": "number"
+                },
+                "denies": {
+                    "type": "number"
+                },
+                "kill_streak": {
+                    "type": "number"
+                },
+                "team_name": {
+                    "description": "GSI_PlayerTeam",
+                    "enum": [
+                        "dire",
+                        "radiant",
+                        "none",
+                        "undefined"
+                    ]
+                },
+                "gold": {
+                    "type": "number"
+                },
+                "gold_reliable": {
+                    "type": "number"
+                },
+                "gold_unreliable": {
+                    "type": "number"
+                },
+                "gpm": {
+                    "type": "number"
+                },
+                "xpm": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "steamid",
+                "name",
+                "activity",
+                "kills",
+                "deaths",
+                "assists",
+                "last_hits",
+                "denies",
+                "kill_streak",
+                "team_name",
+                "gold",
+                "gold_reliable",
+                "gold_unreliable",
+                "gpm",
+                "xpm"
+            ],
+            "additionalProperties": false
+        },
+        "hero": {
+            "description": "IGSI_Hero",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "alive": {
+                    "type": "boolean"
+                },
+                "respawn_seconds": {
+                    "type": "number"
+                },
+                "buyback_cost": {
+                    "type": "number"
+                },
+                "buyback_cooldown": {
+                    "type": "number"
+                },
+                "health": {
+                    "type": "number"
+                },
+                "max_health": {
+                    "type": "number"
+                },
+                "health_percent": {
+                    "type": "number"
+                },
+                "mana": {
+                    "type": "number"
+                },
+                "max_mana": {
+                    "type": "number"
+                },
+                "mana_percent": {
+                    "type": "number"
+                },
+                "silenced": {
+                    "type": "boolean"
+                },
+                "stunned": {
+                    "type": "boolean"
+                },
+                "disarmed": {
+                    "type": "boolean"
+                },
+                "magicimmune": {
+                    "type": "boolean"
+                },
+                "hexed": {
+                    "type": "boolean"
+                },
+                "muted": {
+                    "type": "boolean"
+                },
+                "break": {
+                    "type": "boolean"
+                },
+                "has_debuff": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "level",
+                "alive",
+                "respawn_seconds",
+                "buyback_cost",
+                "buyback_cooldown",
+                "health",
+                "max_health",
+                "health_percent",
+                "mana",
+                "max_mana",
+                "mana_percent",
+                "silenced",
+                "stunned",
+                "disarmed",
+                "magicimmune",
+                "hexed",
+                "muted",
+                "break",
+                "has_debuff"
+            ],
+            "additionalProperties": false
+        },
+        "abilities": {
+            "items": {
+                "description": "IGSI_AbilityBase",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "number"
+                    },
+                    "can_cast": {
+                        "type": "boolean"
+                    },
+                    "passive": {
+                        "type": "boolean"
+                    },
+                    "ability_active": {
+                        "type": "boolean"
+                    },
+                    "cooldown": {
+                        "type": "number"
+                    },
+                    "ultimate": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "name",
+                    "level",
+                    "can_cast",
+                    "passive",
+                    "ability_active",
+                    "cooldown",
+                    "ultimate"
+                ],
+                "additionalProperties": false
+            },
+            "type": "array"
+        },
+        "items": {
+            "type": "array",
+            "items": {
+                "description": "IGSI_ItemBase",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "contains_rune": {
+                        "type": "boolean"
+                    },
+                    "can_cast": {
+                        "type": "boolean"
+                    },
+                    "cooldown": {
+                        "type": "string"
+                    },
+                    "passive": {
+                        "type": "boolean"
+                    },
+                    "charges": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "name",
+                    "contains_rune",
+                    "can_cast",
+                    "cooldown",
+                    "passive",
+                    "charges"
+                ],
+                "additionalProperties": false
+            }
+        }
     },
-    "items": {
-      "type": "array",
-      "items": {
-        "description": "IGSI_ItemBase",
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "contains_rune": {
-            "type": "boolean"
-          },
-          "can_cast": {
-            "type": "boolean"
-          },
-          "cooldown": {
-            "type": "string"
-          },
-          "passive": {
-            "type": "boolean"
-          },
-          "charges": {
-            "type": "number"
-          }
-        },
-        "required": [
-          "name",
-          "contains_rune",
-          "can_cast",
-          "cooldown",
-          "passive",
-          "charges"
-        ],
-        "additionalProperties": false
-      }
-    }
-  },
-  "additionalProperties": false
+    "additionalProperties": false
 
 }
